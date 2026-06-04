@@ -129,7 +129,7 @@
       flex: 1 1 auto;
       min-width: 0;
       overflow: hidden;
-      padding-right: 104px;
+      padding-right: 0;
       gap: 10px;
     }
 
@@ -180,7 +180,7 @@
       justify-content: flex-end;
       flex: 0 0 auto;
       gap: 8px;
-      width: 92px;
+      width: auto;
       position: absolute;
       right: 14px;
       top: 50%;
@@ -250,12 +250,24 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 7px;
-      color: var(--sun);
+      color: #f2aa10;
       font-size: 12px;
       font-weight: 900;
       letter-spacing: .05em;
       line-height: 1.25;
       text-transform: uppercase;
+    }
+
+    .hero .eyebrow {
+      position: relative;
+      z-index: 2;
+      width: fit-content;
+      max-width: min(100%, 460px);
+      padding: 6px 9px;
+      border-radius: 999px;
+      background: rgba(10, 84, 39, .74);
+      color: #ffc12a;
+      text-shadow: 0 1px 0 rgba(0, 0, 0, .4);
     }
 
     .hero {
@@ -1085,18 +1097,25 @@
       }
 
       .brand-subtitle {
-        max-width: 142px;
-        font-size: 10px;
+        max-width: 224px;
+        font-size: 9px;
+        line-height: 1.15;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
       }
 
       .hero .eyebrow {
         display: flex;
-        max-width: 260px;
+        max-width: calc(100% - 74px);
+        color: #ffc12a;
+        background: rgba(13, 91, 43, .86);
       }
 
       .hero h1 {
-        font-size: 34px;
-        line-height: 1.04;
+        max-width: 310px;
+        font-size: 29px;
+        line-height: 1.08;
       }
 
       .hero p {
@@ -1351,7 +1370,6 @@
             </div>
           </div>
           <div class="top-actions">
-            ${!ui.admin ? `<button class="btn small ghost" data-action="install">${icons.install}<span>Instalar</span></button>` : ""}
             ${ui.admin ? `<button class="icon-btn" title="Voltar para cliente" data-action="exit-admin">${icons.home}</button>` : ""}
           </div>
         </header>
@@ -1384,7 +1402,6 @@
           <div class="desktop-panel-actions">
             <button class="btn primary" type="button" data-tab="shirts">${icons.shirt} Ver camisas</button>
             <button class="btn ghost" type="button" data-action="whatsapp-generic">${icons.whats} Comprar pelo WhatsApp</button>
-            <button class="btn ghost" type="button" data-action="install">${icons.install} Instalar app</button>
           </div>
         </aside>
       `;
