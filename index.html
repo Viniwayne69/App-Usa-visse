@@ -1,0 +1,2405 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#062D12">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Usa Visse">
+  <meta name="description" content="Vitrine mobile da Usa Visse: camisas criativas com sotaque, humor e orgulho regional">
+  <title>Usa Visse | Camisas criativas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="icon" id="favicon" href="">
+  <link rel="manifest" id="manifestLink" href="">
+  <style>
+    :root {
+      --forest: #0c4a22;
+      --sun: #c88a0a;
+      --clay: #c96b1d;
+      --paper: #f2f1e8;
+      --olive: #2f5630;
+      --ink: #102018;
+      --line: rgba(242, 241, 232, .18);
+      --muted: rgba(242, 241, 232, .72);
+      --shadow: 0 18px 52px rgba(0, 0, 0, .36);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+      font-family: "Open Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      min-height: 100%;
+      background: var(--forest);
+      color: var(--paper);
+      font-family: "Open Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      letter-spacing: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      background:
+        radial-gradient(circle at 18% 8%, rgba(201, 107, 29, .16), transparent 28rem),
+        radial-gradient(circle at 88% 18%, rgba(200, 138, 10, .14), transparent 24rem),
+        linear-gradient(150deg, #0b371a 0%, var(--forest) 48%, #073118 100%);
+      color: var(--paper);
+      overflow-x: hidden;
+    }
+
+    body:before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      opacity: .14;
+      pointer-events: none;
+      background-image:
+        linear-gradient(90deg, rgba(242, 241, 232, .05) 1px, transparent 1px),
+        linear-gradient(rgba(242, 241, 232, .04) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: linear-gradient(to bottom, #000, transparent 86%);
+    }
+
+    button, input, select, textarea {
+      font: inherit;
+    }
+
+    button {
+      border: 0;
+      cursor: pointer;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid rgba(242, 241, 232, .2);
+      border-radius: 8px;
+      background: rgba(11, 15, 20, .68);
+      color: var(--paper);
+      outline: 0;
+      padding: 12px 13px;
+      min-height: 46px;
+    }
+
+    textarea {
+      min-height: 94px;
+      resize: vertical;
+    }
+
+    input::placeholder, textarea::placeholder { color: rgba(242, 241, 232, .44); }
+
+    label {
+      display: grid;
+      gap: 7px;
+      color: rgba(242, 241, 232, .78);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .app {
+      width: min(1120px, 100%);
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 16px 14px calc(94px + var(--safe-bottom));
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin: -16px 0 14px;
+      padding: 12px 14px;
+      background: rgba(11, 72, 34, .9);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+
+    .brand-lockup {
+      display: flex;
+      align-items: center;
+      flex: 1 1 auto;
+      min-width: 0;
+      overflow: hidden;
+      padding-right: 104px;
+      gap: 10px;
+    }
+
+    .brand-lockup > div:last-child {
+      min-width: 0;
+    }
+
+    .mark {
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      border: 1px solid rgba(200, 138, 10, .7);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      background: linear-gradient(145deg, rgba(201, 107, 29, .24), rgba(6, 45, 18, .76));
+      box-shadow: inset 0 0 0 4px rgba(6, 45, 18, .6);
+    }
+
+    .brand-title {
+      margin: 0;
+      font-size: clamp(22px, 5vw, 32px);
+      line-height: 1;
+      font-weight: 900;
+      text-transform: uppercase;
+      text-shadow: 1px 1px 0 rgba(201, 107, 29, .55);
+      color: var(--paper);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .brand-subtitle {
+      margin-top: 4px;
+      color: rgba(242, 241, 232, .92);
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: none;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex: 0 0 auto;
+      gap: 8px;
+      width: 92px;
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .icon-btn {
+      width: 42px;
+      height: 42px;
+      flex: 0 0 42px;
+      border-radius: 50%;
+      border: 1px solid rgba(242, 241, 232, .18);
+      color: var(--paper);
+      background: rgba(35, 61, 36, .78);
+      display: grid;
+      place-items: center;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+
+    .icon-btn:active, .btn:active, .chip:active { transform: scale(.97); }
+
+    .icon {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .screen-title {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin: 14px 0 12px;
+    }
+
+    h2, h3, p { margin-top: 0; }
+
+    h2 {
+      margin-bottom: 0;
+      font-size: clamp(24px, 6vw, 40px);
+      line-height: 1.02;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: var(--paper);
+    }
+
+    h3 {
+      margin-bottom: 8px;
+      font-size: 20px;
+      line-height: 1.08;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    p {
+      color: rgba(242, 241, 232, .82);
+      line-height: 1.45;
+      font-size: 15px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 7px;
+      color: var(--sun);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .05em;
+      line-height: 1.25;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 260px;
+      border: 1px solid rgba(242, 241, 232, .2);
+      border-radius: 8px;
+      overflow: hidden;
+      padding: 22px;
+      background:
+        linear-gradient(120deg, rgba(22, 113, 55, .98) 0%, rgba(17, 96, 48, .9) 55%, rgba(12, 76, 39, .78) 100%),
+        repeating-linear-gradient(0deg, rgba(242, 241, 232, .05), rgba(242, 241, 232, .05) 1px, transparent 1px, transparent 8px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero:after {
+      content: "";
+      position: absolute;
+      width: 210px;
+      height: 210px;
+      right: -42px;
+      top: 28px;
+      border: 22px solid rgba(201, 107, 29, .86);
+      border-left-color: transparent;
+      border-bottom-color: transparent;
+      border-radius: 50%;
+      transform: rotate(-18deg);
+      opacity: .96;
+    }
+
+    .hero h1 {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 10px 0 14px;
+      font-size: clamp(40px, 9vw, 76px);
+      line-height: .95;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: var(--paper);
+      text-shadow: 2px 2px 0 rgba(201, 107, 29, .62);
+    }
+
+    .hero p {
+      position: relative;
+      z-index: 1;
+      max-width: 520px;
+      color: rgba(242, 241, 232, .9);
+      font-size: 18px;
+      overflow-wrap: anywhere;
+    }
+
+    .hero-actions, .row-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      align-items: center;
+    }
+
+    .hero-actions {
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn {
+      min-height: 46px;
+      border-radius: 8px;
+      padding: 12px 15px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      border: 1px solid rgba(242, 241, 232, .16);
+      color: var(--paper);
+      font-weight: 950;
+      text-transform: uppercase;
+      background: rgba(35, 61, 36, .86);
+      transition: transform .2s ease, filter .2s ease, background .2s ease;
+      text-decoration: none;
+    }
+
+    .btn.primary {
+      color: #1d1403;
+      background: linear-gradient(135deg, var(--sun), #e0a31c);
+      border-color: rgba(242, 241, 232, .28);
+      box-shadow: 0 12px 28px rgba(200, 138, 10, .22);
+    }
+
+    .btn.clay {
+      color: #fffaf0;
+      background: linear-gradient(135deg, var(--clay), #9e4d12);
+    }
+
+    .btn.ghost {
+      background: rgba(11, 15, 20, .42);
+    }
+
+    .btn.small {
+      min-height: 38px;
+      padding: 8px 11px;
+      font-size: 13px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 20% 12%, rgba(242, 241, 232, .08), transparent 30%),
+        linear-gradient(145deg, rgba(52, 103, 55, .96), rgba(20, 74, 38, .9)),
+        repeating-linear-gradient(45deg, rgba(242, 241, 232, .045), rgba(242, 241, 232, .045) 1px, transparent 1px, transparent 9px);
+      box-shadow: 0 10px 34px rgba(0, 0, 0, .16);
+      padding: 14px;
+    }
+
+    .paper-card {
+      color: #18150d;
+      background:
+        linear-gradient(145deg, rgba(242, 241, 232, .98), rgba(217, 209, 188, .92)),
+        repeating-linear-gradient(0deg, rgba(11, 15, 20, .05), rgba(11, 15, 20, .05) 1px, transparent 1px, transparent 7px);
+    }
+
+    .paper-card p { color: rgba(24, 21, 13, .76); }
+
+    .stamp {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 26px;
+      border: 1px dashed currentColor;
+      border-radius: 999px;
+      padding: 5px 9px;
+      color: #231600;
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      transform: rotate(-1deg);
+      background: linear-gradient(135deg, #e4a51c, var(--sun));
+      box-shadow: inset 0 1px 0 rgba(242, 241, 232, .34), 0 8px 18px rgba(0, 0, 0, .18);
+    }
+
+    .price {
+      color: var(--sun);
+      font-size: 22px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .old-price {
+      color: rgba(242, 241, 232, .45);
+      text-decoration: line-through;
+      font-size: 14px;
+      margin-left: 6px;
+    }
+
+    .chips {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 2px 0 9px;
+      scrollbar-width: none;
+    }
+
+    .chips::-webkit-scrollbar { display: none; }
+
+    .chip {
+      min-height: 38px;
+      white-space: nowrap;
+      border-radius: 999px;
+      border: 1px solid rgba(242, 241, 232, .18);
+      padding: 9px 13px;
+      background: rgba(11, 15, 20, .42);
+      color: rgba(242, 241, 232, .78);
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .chip.active {
+      color: #1f1402;
+      background: var(--sun);
+      border-color: rgba(242, 241, 232, .4);
+    }
+
+    .product-card {
+      display: grid;
+      gap: 11px;
+    }
+
+    .shirt-art {
+      min-height: 178px;
+      border: 1px solid rgba(242, 241, 232, .13);
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 32% 20%, rgba(242, 241, 232, .16), transparent 22%),
+        radial-gradient(circle at 76% 78%, rgba(200, 138, 10, .1), transparent 28%),
+        linear-gradient(145deg, rgba(18, 92, 45, .94), rgba(14, 54, 36, .88));
+      overflow: hidden;
+    }
+
+    .shirt-art img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .shirt-svg {
+      width: min(74%, 220px);
+      height: auto;
+      filter: drop-shadow(0 18px 28px rgba(0, 0, 0, .3));
+    }
+
+    .product-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .product-card h3 {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    .product-card p {
+      margin-bottom: 0;
+      font-size: 14px;
+    }
+
+    .sizes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .size {
+      min-width: 34px;
+      min-height: 31px;
+      border-radius: 6px;
+      border: 1px solid rgba(242, 241, 232, .18);
+      display: grid;
+      place-items: center;
+      padding: 5px 8px;
+      color: rgba(242, 241, 232, .8);
+      background: rgba(11, 15, 20, .36);
+      font-weight: 900;
+    }
+
+    .size.active {
+      background: var(--clay);
+      color: var(--paper);
+    }
+
+    .shortcut {
+      min-height: 94px;
+      justify-items: start;
+      align-content: center;
+      text-align: left;
+    }
+
+    .shortcut .icon {
+      color: var(--sun);
+      width: 27px;
+      height: 27px;
+    }
+
+    .shortcut strong {
+      display: block;
+      color: var(--paper);
+      font-size: 15px;
+      font-weight: 900;
+      line-height: 1.2;
+    }
+
+    .shortcut span {
+      display: block;
+      margin-top: 4px;
+      color: rgba(242, 241, 232, .78);
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .bottom-nav {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 50;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 3px;
+      padding: 8px 8px calc(8px + var(--safe-bottom));
+      background: rgba(4, 17, 8, .92);
+      border-top: 1px solid rgba(242, 241, 232, .18);
+      backdrop-filter: blur(16px);
+    }
+
+    .owner-fab {
+      position: fixed;
+      right: 12px;
+      bottom: calc(74px + var(--safe-bottom));
+      z-index: 55;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(242, 241, 232, .18);
+      color: rgba(242, 241, 232, .78);
+      background: rgba(11, 15, 20, .72);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, .24);
+    }
+
+    .nav-item {
+      min-width: 0;
+      min-height: 54px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      gap: 2px;
+      color: rgba(242, 241, 232, .64);
+      background: transparent;
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .nav-item .icon {
+      width: 21px;
+      height: 21px;
+    }
+
+    .nav-item.active {
+      color: #1d1403;
+      background: var(--sun);
+    }
+
+    .filters {
+      display: grid;
+      gap: 9px;
+      position: sticky;
+      top: 72px;
+      z-index: 15;
+      margin: 0 0 12px;
+      padding: 10px 0 2px;
+      background: rgba(4, 18, 9, .78);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(242, 241, 232, .1);
+    }
+
+    .collection-card {
+      min-height: 172px;
+      display: grid;
+      align-content: end;
+      gap: 9px;
+    }
+
+    .collection-card:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .18;
+      background:
+        radial-gradient(circle at 18% 22%, var(--sun) 0 4px, transparent 5px),
+        radial-gradient(circle at 62% 18%, var(--clay) 0 3px, transparent 4px),
+        linear-gradient(120deg, transparent 0 35%, rgba(242, 241, 232, .2) 36% 37%, transparent 38%);
+      pointer-events: none;
+    }
+
+    .collection-card > * { position: relative; z-index: 1; }
+
+    .offer-card {
+      display: grid;
+      gap: 10px;
+    }
+
+    .admin-shell {
+      padding-bottom: 24px;
+    }
+
+    .admin-header {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .admin-tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .admin-tab {
+      min-height: 66px;
+      border-radius: 8px;
+      border: 1px solid rgba(242, 241, 232, .16);
+      background: rgba(35, 61, 36, .72);
+      color: var(--paper);
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 950;
+      text-align: left;
+      text-transform: uppercase;
+    }
+
+    .admin-tab.active {
+      background: var(--sun);
+      color: #1e1403;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 11px;
+    }
+
+    .form-grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .check-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .check-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 38px;
+      border: 1px solid rgba(242, 241, 232, .17);
+      border-radius: 999px;
+      padding: 8px 10px;
+      background: rgba(11, 15, 20, .42);
+      color: rgba(242, 241, 232, .82);
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .check-pill input {
+      width: auto;
+      min-height: auto;
+      accent-color: var(--sun);
+    }
+
+    .list-item {
+      display: grid;
+      gap: 9px;
+      border-bottom: 1px solid rgba(242, 241, 232, .12);
+      padding: 12px 0;
+    }
+
+    .list-item:last-child { border-bottom: 0; }
+
+    .empty {
+      border: 1px dashed rgba(242, 241, 232, .2);
+      border-radius: 8px;
+      padding: 22px;
+      text-align: center;
+      color: rgba(242, 241, 232, .68);
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      display: grid;
+      align-items: end;
+      padding: 14px;
+      background: rgba(0, 0, 0, .58);
+    }
+
+    .modal {
+      width: min(680px, 100%);
+      max-height: calc(100vh - 28px);
+      margin: 0 auto;
+      overflow: auto;
+      border: 1px solid rgba(242, 241, 232, .2);
+      border-radius: 8px;
+      background: linear-gradient(145deg, #102618, #07130b);
+      box-shadow: var(--shadow);
+    }
+
+    .modal-content {
+      padding: 14px;
+    }
+
+    .modal-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(242, 241, 232, .14);
+      position: sticky;
+      top: 0;
+      background: rgba(7, 19, 11, .94);
+      backdrop-filter: blur(10px);
+      z-index: 1;
+    }
+
+    .toast {
+      position: fixed;
+      left: 14px;
+      right: 14px;
+      bottom: calc(82px + var(--safe-bottom));
+      z-index: 120;
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 13px 15px;
+      border-radius: 8px;
+      border: 1px solid rgba(242, 241, 232, .2);
+      background: var(--ink);
+      color: var(--paper);
+      box-shadow: var(--shadow);
+      font-weight: 900;
+      text-align: center;
+      transform: translateY(18px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s ease, transform .2s ease;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .hide { display: none !important; }
+
+    .mini-symbols {
+      display: flex;
+      gap: 11px;
+      align-items: center;
+      color: var(--sun);
+      opacity: .9;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      align-items: center;
+    }
+
+    .client-layout {
+      display: contents;
+    }
+
+    .desktop-sidebar {
+      display: contents;
+    }
+
+    .client-main {
+      min-width: 0;
+    }
+
+    .desktop-brand-panel {
+      display: none;
+    }
+
+    @media (min-width: 700px) {
+      .app {
+        padding-left: 22px;
+        padding-right: 22px;
+      }
+
+      .topbar {
+        padding-left: 22px;
+        padding-right: 22px;
+      }
+
+      .filters {
+        padding-left: 22px;
+        padding-right: 22px;
+      }
+
+      .bottom-nav {
+        width: min(520px, calc(100% - 28px));
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        bottom: 12px;
+        border: 1px solid rgba(242, 241, 232, .18);
+        border-radius: 14px;
+      }
+
+      .grid.products { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .grid.collections { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .admin-tabs { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .modal-backdrop { align-items: center; }
+      .hero { min-height: 390px; }
+    }
+
+    @media (min-width: 1120px) {
+      .app {
+        width: calc(100% - 24px);
+        padding: 20px 24px 42px;
+      }
+
+      .topbar {
+        margin-bottom: 20px;
+        border: 1px solid rgba(242, 241, 232, .12);
+        border-radius: 24px;
+        background:
+          radial-gradient(circle at 12% 10%, rgba(242, 241, 232, .09), transparent 24%),
+          linear-gradient(135deg, rgba(22, 117, 56, .96), rgba(13, 86, 42, .94));
+        box-shadow: 0 18px 60px rgba(0, 0, 0, .2);
+      }
+
+      .client-layout {
+        display: grid;
+        grid-template-columns: 320px minmax(0, 1fr);
+        gap: 18px 24px;
+        align-items: start;
+      }
+
+      .desktop-sidebar {
+        position: sticky;
+        top: 104px;
+        display: grid;
+        grid-column: 1;
+        gap: 16px;
+        align-self: start;
+      }
+
+      .desktop-brand-panel {
+        position: static;
+        display: grid;
+        gap: 12px;
+        min-height: auto;
+        padding: 18px;
+        border: 1px solid rgba(242, 241, 232, .24);
+        border-radius: 24px;
+        background:
+          linear-gradient(145deg, rgba(242, 241, 232, .96), rgba(227, 218, 196, .92));
+        color: #17180d;
+        overflow: hidden;
+        box-shadow: 0 22px 70px rgba(0, 0, 0, .28);
+      }
+
+      .desktop-brand-panel:before {
+        display: none;
+      }
+
+      .desktop-brand-panel:after {
+        display: none;
+      }
+
+      .desktop-brand-panel > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .desktop-brand-panel .eyebrow {
+        color: #815300;
+      }
+
+      .desktop-brand-panel h2 {
+        display: none;
+      }
+
+      .desktop-brand-panel p:not(.eyebrow) {
+        display: none;
+      }
+
+      .desktop-panel-actions {
+        display: grid;
+        gap: 10px;
+        margin-top: 0;
+      }
+
+      .client-main {
+        grid-column: 2;
+        width: 100%;
+        min-width: 0;
+      }
+
+      .bottom-nav {
+        position: static;
+        display: grid;
+        align-self: start;
+        grid-template-columns: 1fr;
+        gap: 6px;
+        width: 100%;
+        min-height: auto;
+        padding: 10px;
+        border: 1px solid rgba(242, 241, 232, .16);
+        border-radius: 24px;
+        background: rgba(242, 241, 232, .94);
+        box-shadow: 0 18px 52px rgba(0, 0, 0, .24);
+        transform: none;
+      }
+
+      .nav-item {
+        display: flex;
+        min-height: 46px;
+        justify-content: flex-start;
+        gap: 12px;
+        padding: 0 16px;
+        border-radius: 18px;
+        color: #556052;
+        font-size: 13px;
+      }
+
+      .nav-item .icon {
+        width: 20px;
+        height: 20px;
+      }
+
+      .nav-item.active {
+        background: #17180d;
+        color: #fffaf0;
+      }
+
+      .owner-fab {
+        display: none;
+      }
+
+      .hero {
+        display: grid;
+        align-content: center;
+        min-height: 245px;
+        border-radius: 28px;
+        padding: 30px 34px;
+      }
+
+      .hero h1 {
+        max-width: calc(100% - 120px);
+        font-size: clamp(40px, 2.8vw, 52px);
+        line-height: 1.08;
+        margin: 12px 0 18px;
+      }
+
+      .hero .eyebrow {
+        align-self: start;
+      }
+
+      .card,
+      .collection-card,
+      .shirt-art {
+        border-radius: 22px;
+      }
+
+      .grid.products,
+      .grid.collections {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .grid.three {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .grid.two {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .admin-shell {
+        display: grid;
+        grid-template-columns: 310px minmax(0, 1fr);
+        gap: 18px;
+        align-items: start;
+      }
+
+      .admin-header {
+        position: sticky;
+        top: 104px;
+      }
+
+      .admin-tabs {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .grid.two, .grid.three, .form-grid.two {
+        grid-template-columns: 1fr;
+      }
+
+      .grid.products {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .product-card {
+        padding: 10px;
+      }
+
+      .shirt-art {
+        min-height: 136px;
+      }
+
+      .product-card h3 {
+        font-size: 18px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .hero-actions .btn, .row-actions .btn, .product-card .btn {
+        width: auto;
+      }
+
+      .top-actions .btn {
+        width: 42px;
+        flex: 0 0 42px;
+        padding: 0;
+        font-size: 0;
+      }
+
+      .brand-title {
+        font-size: 23px;
+      }
+
+      .brand-subtitle {
+        max-width: 142px;
+        font-size: 10px;
+      }
+
+      .hero .eyebrow {
+        display: flex;
+        max-width: 260px;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+        line-height: 1.04;
+      }
+
+      .hero p {
+        max-width: 292px;
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="app" class="app"></div>
+  <div id="toast" class="toast"></div>
+
+  <script>
+    const APP_CONFIG = {
+      brandName: "Usa Visse",
+      tagline: "A marca mais arretada do Brasil.",
+      appLink: "https://usavisse.com",
+      whatsapp: "5581999999999",
+      instagram: "@usa.visse",
+      primaryColor: "#062D12",
+      accentColor: "#C88A0A",
+      secondaryAccent: "#C96B1D"
+    };
+
+    const STORAGE_KEY = "usa-visse-vitrine-v3";
+    const ADMIN_PASSWORD = "usavisse123";
+    const CATEGORIES = ["Todas", "Novidades", "Mais vendidas", "Debochadas", "Regionais", "Pernambuco", "Café", "Presentes", "Ofertas"];
+    const PRODUCT_CATEGORIES = ["Debochadas", "Regionais", "Pernambuco", "Café", "Presentes", "Novidades", "Ofertas"];
+    const STATUSES = ["Novo", "Mais vendido", "Oferta", "Destaque", "Disponível"];
+    const SIZES = ["P", "M", "G", "GG", "XG"];
+    const OFFER_TYPES = ["Frete grátis", "Combo", "Lançamento", "Reposição", "Promoção", "Presente"];
+    const ACTION_TYPES = ["WhatsApp", "Ver produto", "Ver coleção", "Entrar no Clube"];
+
+    const icons = {
+      home: '<svg class="icon" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>',
+      shirt: '<svg class="icon" viewBox="0 0 24 24"><path d="M8 4 4 6l-2 5 4 2 1-2v9h10v-9l1 2 4-2-2-5-4-2a4 4 0 0 1-8 0Z"/></svg>',
+      grid: '<svg class="icon" viewBox="0 0 24 24"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/></svg>',
+      tag: '<svg class="icon" viewBox="0 0 24 24"><path d="M20 13 11 22 2 13V2h11l7 7Z"/><path d="M7 7h.01"/></svg>',
+      club: '<svg class="icon" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-8 0v2"/><circle cx="12" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M2 21v-2a4 4 0 0 1 3-3.87"/></svg>',
+      search: '<svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>',
+      whats: '<svg class="icon" viewBox="0 0 24 24"><path d="M20 11.5a8 8 0 0 1-11.9 7L3 20l1.6-4.9A8 8 0 1 1 20 11.5Z"/><path d="M9 8c.3 3 2 5 5 6l1.2-1.2"/></svg>',
+      user: '<svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>',
+      plus: '<svg class="icon" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>',
+      edit: '<svg class="icon" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>',
+      trash: '<svg class="icon" viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="m19 6-1 14H6L5 6"/><path d="M10 11v5M14 11v5"/></svg>',
+      star: '<svg class="icon" viewBox="0 0 24 24"><path d="m12 2 3 7 7 .6-5.4 4.7 1.7 6.7-6.3-3.6L5.7 21l1.7-6.7L2 9.6 9 9Z"/></svg>',
+      close: '<svg class="icon" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>',
+      install: '<svg class="icon" viewBox="0 0 24 24"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>',
+      moon: '<svg class="icon" viewBox="0 0 24 24"><path d="M21 13a8 8 0 1 1-10-10 7 7 0 0 0 10 10Z"/></svg>',
+      sun: '<svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>',
+      cactus: '<svg class="icon" viewBox="0 0 24 24"><path d="M12 22V6a3 3 0 1 1 6 0v3a2 2 0 0 0 4 0"/><path d="M12 12H8a2 2 0 0 1-2-2V8a2 2 0 1 0-4 0v2"/><path d="M8 22h8"/></svg>',
+      bridge: '<svg class="icon" viewBox="0 0 24 24"><path d="M3 17h18"/><path d="M4 17c3-8 13-8 16 0"/><path d="M7 17v3M12 14v6M17 17v3"/></svg>',
+      copy: '<svg class="icon" viewBox="0 0 24 24"><path d="M8 8h12v12H8z"/><path d="M4 16V4h12"/></svg>'
+    };
+
+    const defaultState = {
+      products: [
+        {
+          id: uid(),
+          name: "Oxente, tu tá é no lugar certo visse?",
+          phrase: "Oxente, tu tá é no lugar certo visse?",
+          description: "Estampa regional arretada para quem veste a terra no peito e chega chegando",
+          price: 79.9,
+          promoPrice: "",
+          category: "Regionais",
+          collection: "Oxente Collection",
+          sizes: ["P", "M", "G", "GG"],
+          status: "Mais vendido",
+          featured: true,
+          weekly: true,
+          image: "",
+          createdAt: Date.now() - 500000
+        },
+        {
+          id: uid(),
+          name: "Bora cuidar donzela",
+          phrase: "Bora cuidar donzela!",
+          description: "Humor leve, presença forte e aquele deboche bom de vestir no dia a dia",
+          price: 79.9,
+          promoPrice: "",
+          category: "Debochadas",
+          collection: "Deboche Regional",
+          sizes: ["P", "M", "G"],
+          status: "Novo",
+          featured: false,
+          weekly: false,
+          image: "",
+          createdAt: Date.now() - 400000
+        },
+        {
+          id: uid(),
+          name: "Só presta depois do café",
+          phrase: "Só presta depois do café",
+          description: "Para quem sabe que todo plano bom começa depois de uma xícara bem servida",
+          price: 79.9,
+          promoPrice: "",
+          category: "Café",
+          collection: "Só Presta Depois do Café",
+          sizes: ["P", "M", "G", "GG"],
+          status: "Destaque",
+          featured: true,
+          weekly: false,
+          image: "",
+          createdAt: Date.now() - 300000
+        },
+        {
+          id: uid(),
+          name: "Pernambuco meu país",
+          phrase: "Pernambuco meu país",
+          description: "Orgulho regional estampado com sol, cor e aquele sentimento de pertencimento",
+          price: 89.9,
+          promoPrice: 79.9,
+          category: "Pernambuco",
+          collection: "Pernambuco Meu País",
+          sizes: ["P", "M", "G", "GG"],
+          status: "Oferta",
+          featured: true,
+          weekly: false,
+          image: "",
+          createdAt: Date.now() - 200000
+        },
+        {
+          id: uid(),
+          name: "Eu se cuido",
+          phrase: "Eu se cuido",
+          description: "Minimalista, divertida e cheia de personalidade para presentear ou usar muito",
+          price: 79.9,
+          promoPrice: "",
+          category: "Debochadas",
+          collection: "Deboche Regional",
+          sizes: ["P", "M", "G"],
+          status: "Disponível",
+          featured: false,
+          weekly: false,
+          image: "",
+          createdAt: Date.now() - 100000
+        }
+      ],
+      collections: [
+        { id: uid(), name: "Pernambuco Meu País", description: "Cores, orgulho e símbolos de quem sabe de onde vem", order: 1, image: "", texture: "sol, ponte e carimbo" },
+        { id: uid(), name: "Oxente Collection", description: "Frases com sotaque, presença e humor regional", order: 2, image: "", texture: "lua, estrela e papel" },
+        { id: uid(), name: "Só Presta Depois do Café", description: "A coleção de quem precisa do café antes do mundo", order: 3, image: "", texture: "papel envelhecido e caneca" },
+        { id: uid(), name: "Deboche Regional", description: "Peças arretadas para quem tem personalidade", order: 4, image: "", texture: "carimbo e tecido" },
+        { id: uid(), name: "Presentes Arretados", description: "Camisas para acertar em cheio no presente criativo", order: 5, image: "", texture: "selo e embalagem" }
+      ],
+      offers: [
+        { id: uid(), title: "Frete grátis acima de R$199", description: "Junte suas camisas preferidas e fale com a gente para garantir a condição", period: "Essa semana", type: "Frete grátis", buttonText: "Chamar no WhatsApp", productId: "", isMain: true },
+        { id: uid(), title: "Combo presente arretado", description: "Monte um presente com camisa criativa e carinho regional", period: "Enquanto durar o estoque", type: "Combo", buttonText: "Ver condição", productId: "", isMain: false },
+        { id: uid(), title: "Camisa da semana com condição especial", description: "A estampa mais pedida ganha destaque para sair ligeiro", period: "Até domingo", type: "Promoção", buttonText: "Quero saber mais", productId: "", isMain: false }
+      ],
+      highlight: {
+        title: "Indique um amigo",
+        description: "Mostre a Usa Visse para alguém arretado e fale com a gente para saber a condição especial",
+        period: "Sempre ativo",
+        buttonText: "Indicar amigo",
+        actionType: "WhatsApp",
+        relatedId: ""
+      },
+      club: {
+        title: "Clube Visse",
+        description: "Entre para receber novidades, lançamentos e condições especiais antes de todo mundo",
+        benefits: "Novidades em primeira mão\nCondições especiais\nCampanhas da marca\nIndicação de amigos",
+        buttonText: "Entrar pelo WhatsApp",
+        message: "Olá, quero entrar no Clube Visse e receber novidades da Usa Visse"
+      }
+    };
+
+    let state = loadState();
+    let ui = {
+      tab: "home",
+      admin: false,
+      adminView: "product",
+      filters: { search: "", category: "Todas", size: "Todos", price: "Todos" },
+      selectedProductId: "",
+      selectedCollection: "",
+      selectedSize: "",
+      editingProductId: "",
+      editingCollectionId: "",
+      editingOfferId: "",
+      deferredPrompt: null
+    };
+
+    const app = document.getElementById("app");
+    const toastEl = document.getElementById("toast");
+
+    initPwa();
+    render();
+
+    window.addEventListener("beforeinstallprompt", (event) => {
+      event.preventDefault();
+      ui.deferredPrompt = event;
+      render();
+    });
+
+    app.addEventListener("click", handleClick);
+    app.addEventListener("input", handleInput);
+    app.addEventListener("change", handleChange);
+    app.addEventListener("submit", handleSubmit);
+
+    function uid() {
+      return "uv_" + Math.random().toString(36).slice(2, 10) + Date.now().toString(36);
+    }
+
+    function money(value) {
+      const number = Number(value || 0);
+      return number.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function loadState() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+        if (saved && saved.products && saved.collections && saved.offers) {
+          return saved;
+        }
+      } catch (error) {
+        console.warn("Não foi possível carregar a vitrine salva", error);
+      }
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultState));
+      return structuredClone(defaultState);
+    }
+
+    function saveState() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }
+
+    function render() {
+      app.innerHTML = `
+        ${topbarTemplate()}
+        ${ui.admin ? adminTemplate() : clientShellTemplate()}
+        ${modalTemplate()}
+      `;
+    }
+
+    function topbarTemplate() {
+      return `
+        <header class="topbar">
+          <div class="brand-lockup">
+            <button class="mark" title="${ui.admin ? "Voltar para cliente" : "Modo dono"}" data-action="${ui.admin ? "exit-admin" : "owner-login"}">${brandMark()}</button>
+            <div>
+              <h1 class="brand-title">${escapeHtml(APP_CONFIG.brandName)}</h1>
+              <div class="brand-subtitle">${escapeHtml(APP_CONFIG.tagline)}</div>
+            </div>
+          </div>
+          <div class="top-actions">
+            ${!ui.admin ? `<button class="btn small ghost" data-action="install">${icons.install}<span>Instalar</span></button>` : ""}
+            ${ui.admin ? `<button class="icon-btn" title="Voltar para cliente" data-action="exit-admin">${icons.home}</button>` : ""}
+          </div>
+        </header>
+      `;
+    }
+
+    function ownerFabTemplate() {
+      return `<button class="owner-fab" title="Modo dono" data-action="owner-login">${icons.user}</button>`;
+    }
+
+    function clientShellTemplate() {
+      return `
+        <div class="client-layout">
+          <aside class="desktop-sidebar" aria-label="Menu e ações">
+            ${bottomNavTemplate()}
+            ${desktopBrandPanelTemplate()}
+          </aside>
+          <main class="client-main">
+            ${clientTemplate()}
+          </main>
+          ${ownerFabTemplate()}
+        </div>
+      `;
+    }
+
+    function desktopBrandPanelTemplate() {
+      return `
+        <aside class="desktop-brand-panel" aria-label="Resumo da marca">
+          <p class="eyebrow">Ações rápidas</p>
+          <div class="desktop-panel-actions">
+            <button class="btn primary" type="button" data-tab="shirts">${icons.shirt} Ver camisas</button>
+            <button class="btn ghost" type="button" data-action="whatsapp-generic">${icons.whats} Comprar pelo WhatsApp</button>
+            <button class="btn ghost" type="button" data-action="install">${icons.install} Instalar app</button>
+          </div>
+        </aside>
+      `;
+    }
+
+    function clientTemplate() {
+      if (ui.tab === "shirts") return shirtsTemplate();
+      if (ui.tab === "collections") return collectionsTemplate();
+      if (ui.tab === "offers") return offersTemplate();
+      if (ui.tab === "club") return clubTemplate();
+      return homeTemplate();
+    }
+
+    function bottomNavTemplate() {
+      const tabs = [
+        ["home", "Início", icons.home],
+        ["shirts", "Camisas", icons.shirt],
+        ["collections", "Coleções", icons.grid],
+        ["offers", "Ofertas", icons.tag],
+        ["club", "Clube", icons.club]
+      ];
+      return `
+        <nav class="bottom-nav" aria-label="Navegação principal">
+          ${tabs.map(([id, label, icon]) => `
+            <button class="nav-item ${ui.tab === id ? "active" : ""}" data-tab="${id}">
+              ${icon}<span>${label}</span>
+            </button>
+          `).join("")}
+        </nav>
+      `;
+    }
+
+    function homeTemplate() {
+      const weekly = state.products.find(product => product.weekly) || state.products.find(product => product.featured) || state.products[0];
+      const mainOffer = state.offers.find(offer => offer.isMain) || state.offers[0];
+      const featuredCollection = sortedCollections()[0];
+      return `
+        <section class="hero">
+          <span class="eyebrow">${icons.sun} Camisas criativas com orgulho regional</span>
+          <h1>Aqui é diferenciado, só tem peça massinha</h1>
+          <div class="hero-actions">
+            <button class="btn primary" data-tab="shirts">${icons.shirt} Ver camisas</button>
+            <button class="btn ghost" data-action="whatsapp-generic">${icons.whats} Comprar pelo WhatsApp</button>
+          </div>
+        </section>
+
+        <div class="screen-title">
+          <div>
+            <span class="eyebrow">${icons.moon} Vitrine da terra</span>
+            <h2>Bora escolher a sua</h2>
+          </div>
+          <div class="mini-symbols">${icons.cactus}${icons.bridge}</div>
+        </div>
+
+        <div class="grid two">
+          ${weekly ? `
+            <article class="card product-card">
+              <div class="badge-row"><span class="stamp">Camisa da semana</span></div>
+              ${shirtArt(weekly)}
+              <h3>${escapeHtml(weekly.name)}</h3>
+              <p>${escapeHtml(weekly.phrase)}</p>
+              <div class="product-meta">
+                <div>${priceTemplate(weekly)}</div>
+                <button class="btn primary small" data-buy="${weekly.id}">${icons.whats} Comprar</button>
+              </div>
+            </article>
+          ` : ""}
+
+          <article class="card paper-card">
+            <span class="stamp">Destaque da loja</span>
+            <h3>${escapeHtml(state.highlight.title)}</h3>
+            <p>${escapeHtml(state.highlight.description)}</p>
+            <p><strong>${escapeHtml(state.highlight.period || "")}</strong></p>
+            <button class="btn clay" data-action="highlight">${icons.whats} ${escapeHtml(state.highlight.buttonText || "Chamar no WhatsApp")}</button>
+          </article>
+        </div>
+
+        <div class="screen-title">
+          <div>
+            <span class="eyebrow">${icons.grid} Atalhos</span>
+            <h2>Achados arretados</h2>
+          </div>
+        </div>
+        <div class="grid three">
+          ${["Debochadas", "Regionais", "Presentes", "Mais vendidas", "Novidades", "Ofertas"].map(label => `
+            <button class="card shortcut" data-category-shortcut="${escapeHtml(label)}">
+              ${shortcutIcon(label)}
+              <strong>${escapeHtml(label)}</strong>
+              <span>${shortcutText(label)}</span>
+            </button>
+          `).join("")}
+        </div>
+
+        <div class="grid two" style="margin-top:12px">
+          ${featuredCollection ? `
+            <article class="card collection-card">
+              <span class="stamp">Coleção em destaque</span>
+              <h3>${escapeHtml(featuredCollection.name)}</h3>
+              <p>${escapeHtml(featuredCollection.description)}</p>
+              <button class="btn small ghost" data-open-collection="${escapeHtml(featuredCollection.name)}">Ver coleção</button>
+            </article>
+          ` : ""}
+          ${mainOffer ? offerCard(mainOffer, true) : ""}
+        </div>
+      `;
+    }
+
+    function shirtsTemplate() {
+      const products = filteredProducts();
+      return `
+        <div class="screen-title">
+          <div>
+            <span class="eyebrow">${icons.shirt} Vitrine principal</span>
+            <h2>Oxente, escolha sua camisa</h2>
+          </div>
+        </div>
+        <section class="filters">
+          <label>
+            Buscar por nome ou frase
+            <input data-filter="search" value="${escapeHtml(ui.filters.search)}" placeholder="Ex: café, oxente, Pernambuco">
+          </label>
+          <div class="chips">
+            ${CATEGORIES.map(category => `<button class="chip ${ui.filters.category === category ? "active" : ""}" data-filter-category="${escapeHtml(category)}">${escapeHtml(category)}</button>`).join("")}
+          </div>
+          <div class="chips">
+            ${["Todos", ...SIZES].map(size => `<button class="chip ${ui.filters.size === size ? "active" : ""}" data-filter-size="${escapeHtml(size)}">${escapeHtml(size)}</button>`).join("")}
+            ${["Todos", "Até R$80", "Promoções"].map(price => `<button class="chip ${ui.filters.price === price ? "active" : ""}" data-filter-price="${escapeHtml(price)}">${escapeHtml(price)}</button>`).join("")}
+          </div>
+        </section>
+
+        <section class="grid products">
+          ${products.length ? products.map(productCard).join("") : `<div class="empty">Nenhuma camisa encontrada, tenta outro filtro visse?</div>`}
+        </section>
+      `;
+    }
+
+    function collectionsTemplate() {
+      if (ui.selectedCollection) {
+        const collection = state.collections.find(item => item.name === ui.selectedCollection);
+        const products = sortedProducts().filter(product => product.collection === ui.selectedCollection);
+        return `
+          <div class="screen-title">
+            <div>
+              <span class="eyebrow">${icons.grid} Coleção</span>
+              <h2>${escapeHtml(ui.selectedCollection)}</h2>
+            </div>
+            <button class="btn small ghost" data-action="back-collections">Voltar</button>
+          </div>
+          ${collection ? `<p>${escapeHtml(collection.description)}</p>` : ""}
+          <section class="grid products">
+            ${products.length ? products.map(productCard).join("") : `<div class="empty">Essa coleção ainda não tem camisa cadastrada</div>`}
+          </section>
+        `;
+      }
+      return `
+        <div class="screen-title">
+          <div>
+            <span class="eyebrow">${icons.bridge} Linhas criativas</span>
+            <h2>Coleções da Usa Visse</h2>
+          </div>
+        </div>
+        <section class="grid collections">
+          ${sortedCollections().map(collection => {
+            const count = state.products.filter(product => product.collection === collection.name).length;
+            return `
+              <article class="card collection-card">
+                <span class="stamp">${count} produto${count === 1 ? "" : "s"}</span>
+                <h3>${escapeHtml(collection.name)}</h3>
+                <p>${escapeHtml(collection.description)}</p>
+                <button class="btn small primary" data-open-collection="${escapeHtml(collection.name)}">Ver coleção</button>
+              </article>
+            `;
+          }).join("")}
+        </section>
+      `;
+    }
+
+    function offersTemplate() {
+      const mainOffer = state.offers.find(offer => offer.isMain);
+      return `
+        <div class="screen-title">
+          <div>
+            <span class="eyebrow">${icons.tag} Condições especiais</span>
+            <h2>Ofertas para sair ligeiro</h2>
+          </div>
+        </div>
+        ${mainOffer ? `<section style="margin-bottom:12px">${offerCard(mainOffer, true)}</section>` : ""}
+        <section class="grid two">
+          ${state.offers.map(offer => offerCard(offer, false)).join("")}
+        </section>
+      `;
+    }
+
+    function clubTemplate() {
+      const benefits = String(state.club.benefits || "").split("\n").filter(Boolean);
+      return `
+        <section class="hero" style="min-height:300px">
+          <span class="eyebrow">${icons.club} Pertencimento</span>
+          <h1>${escapeHtml(state.club.title || "Clube Visse")}</h1>
+          <p>${escapeHtml(state.club.description)}</p>
+          <div class="hero-actions">
+            <button class="btn primary" data-action="club-whatsapp">${icons.whats} ${escapeHtml(state.club.buttonText || "Entrar pelo WhatsApp")}</button>
+            <button class="btn ghost" data-action="refer-friend">${icons.star} Indicar amigo</button>
+          </div>
+        </section>
+        <div class="screen-title">
+          <div>
+            <span class="eyebrow">${icons.sun} Benefícios</span>
+            <h2>Chegue primeiro</h2>
+          </div>
+        </div>
+        <section class="grid two">
+          ${benefits.map(benefit => `
+            <article class="card">
+              <span class="stamp">Clube</span>
+              <h3>${escapeHtml(benefit)}</h3>
+              <p>Condição especial para quem acompanha a marca de perto</p>
+            </article>
+          `).join("")}
+        </section>
+      `;
+    }
+
+    function adminTemplate() {
+      return `
+        <main class="admin-shell">
+          <section class="admin-header">
+            <span class="eyebrow">${icons.user} Modo Dono</span>
+            <h2>Painel da marca</h2>
+            <p>Cadastre camisas, organize a vitrine e publique ofertas sem sair deste app</p>
+            <div class="admin-tabs">
+              ${adminTab("product", "Cadastrar camisa", icons.plus)}
+              ${adminTab("showcase", "Editar vitrine", icons.shirt)}
+              ${adminTab("collections", "Editar coleções", icons.grid)}
+              ${adminTab("offers", "Publicar oferta", icons.tag)}
+              ${adminTab("highlight", "Editar destaque", icons.star)}
+              ${adminTab("club", "Editar Clube", icons.club)}
+            </div>
+          </section>
+          ${adminViewTemplate()}
+        </main>
+      `;
+    }
+
+    function adminTab(id, label, icon) {
+      return `<button class="admin-tab ${ui.adminView === id ? "active" : ""}" data-admin-view="${id}">${icon}<span>${label}</span></button>`;
+    }
+
+    function adminViewTemplate() {
+      if (ui.adminView === "showcase") return showcaseAdminTemplate();
+      if (ui.adminView === "collections") return collectionsAdminTemplate();
+      if (ui.adminView === "offers") return offersAdminTemplate();
+      if (ui.adminView === "highlight") return highlightAdminTemplate();
+      if (ui.adminView === "club") return clubAdminTemplate();
+      return productFormTemplate();
+    }
+
+    function productFormTemplate() {
+      const product = state.products.find(item => item.id === ui.editingProductId) || {};
+      return `
+        <section class="card">
+          <h3>${product.id ? "Editar camisa" : "Cadastrar camisa"}</h3>
+          <form class="form-grid" data-form="product">
+            <div class="form-grid two">
+              <label>Nome da camisa <input name="name" required value="${escapeHtml(product.name || "")}"></label>
+              <label>Frase da estampa <input name="phrase" required value="${escapeHtml(product.phrase || "")}"></label>
+            </div>
+            <label>Descrição <textarea name="description" required>${escapeHtml(product.description || "")}</textarea></label>
+            <div class="form-grid two">
+              <label>Preço <input name="price" type="number" step="0.01" min="0" required value="${escapeHtml(product.price || "")}"></label>
+              <label>Preço promocional <input name="promoPrice" type="number" step="0.01" min="0" value="${escapeHtml(product.promoPrice || "")}"></label>
+            </div>
+            <div class="form-grid two">
+              <label>Categoria ${selectTemplate("category", PRODUCT_CATEGORIES, product.category || "Debochadas")}</label>
+              <label>Coleção ${selectTemplate("collection", state.collections.map(item => item.name), product.collection || (state.collections[0] && state.collections[0].name) || "")}</label>
+            </div>
+            <div class="form-grid two">
+              <label>Status ${selectTemplate("status", STATUSES, product.status || "Disponível")}</label>
+              <label>Imagem da camisa <input name="image" type="file" accept="image/*"></label>
+            </div>
+            <label>Tamanhos disponíveis</label>
+            <div class="check-grid">
+              ${SIZES.map(size => `<label class="check-pill"><input type="checkbox" name="sizes" value="${size}" ${(product.sizes || ["P","M","G"]).includes(size) ? "checked" : ""}>${size}</label>`).join("")}
+            </div>
+            <div class="check-grid">
+              <label class="check-pill"><input type="checkbox" name="featured" ${product.featured ? "checked" : ""}> Produto em destaque</label>
+              <label class="check-pill"><input type="checkbox" name="weekly" ${product.weekly ? "checked" : ""}> Camisa da semana</label>
+            </div>
+            <div class="row-actions">
+              <button class="btn primary" type="submit">${icons.star} Salvar camisa</button>
+              ${product.id ? `<button class="btn ghost" type="button" data-action="cancel-edit-product">Cancelar edição</button>` : ""}
+            </div>
+          </form>
+        </section>
+      `;
+    }
+
+    function showcaseAdminTemplate() {
+      return `
+        <section class="card">
+          <h3>Produtos cadastrados</h3>
+          <p>A vitrine mostra destaques primeiro, depois novidades, mais vendidos, ofertas e demais produtos</p>
+          ${sortedProducts().map(product => `
+            <div class="list-item">
+              <div class="product-meta">
+                <div>
+                  <strong>${escapeHtml(product.name)}</strong>
+                  <p>${escapeHtml(product.category)} · ${escapeHtml(product.collection)} · ${escapeHtml(product.status)}</p>
+                </div>
+                <span class="price">${money(product.promoPrice || product.price)}</span>
+              </div>
+              <div class="row-actions">
+                <button class="btn small ghost" data-edit-product="${product.id}">${icons.edit} Editar</button>
+                <button class="btn small ghost" data-duplicate-product="${product.id}">${icons.copy} Duplicar</button>
+                <button class="btn small ghost" data-toggle-featured="${product.id}">${icons.star} ${product.featured ? "Tirar destaque" : "Destacar"}</button>
+                <button class="btn small ghost" data-set-weekly="${product.id}">${icons.sun} Camisa da semana</button>
+                <button class="btn small clay" data-remove-product="${product.id}">${icons.trash} Remover</button>
+              </div>
+            </div>
+          `).join("")}
+        </section>
+      `;
+    }
+
+    function collectionsAdminTemplate() {
+      const collection = state.collections.find(item => item.id === ui.editingCollectionId) || {};
+      return `
+        <section class="grid two">
+          <article class="card">
+            <h3>${collection.id ? "Editar coleção" : "Cadastrar coleção"}</h3>
+            <form class="form-grid" data-form="collection">
+              <label>Nome da coleção <input name="name" required value="${escapeHtml(collection.name || "")}"></label>
+              <label>Descrição <textarea name="description" required>${escapeHtml(collection.description || "")}</textarea></label>
+              <label>Imagem ou textura <input name="texture" value="${escapeHtml(collection.texture || "")}" placeholder="Ex: papel, sol, cacto, ponte"></label>
+              <label>Ordem de exibição <input name="order" type="number" min="1" value="${escapeHtml(collection.order || state.collections.length + 1)}"></label>
+              <div class="row-actions">
+                <button class="btn primary" type="submit">Salvar coleção</button>
+                ${collection.id ? `<button class="btn ghost" type="button" data-action="cancel-edit-collection">Cancelar</button>` : ""}
+              </div>
+            </form>
+          </article>
+          <article class="card">
+            <h3>Coleções ativas</h3>
+            ${sortedCollections().map(item => `
+              <div class="list-item">
+                <strong>${escapeHtml(item.name)}</strong>
+                <p>${escapeHtml(item.description)}</p>
+                <div class="row-actions">
+                  <button class="btn small ghost" data-edit-collection="${item.id}">${icons.edit} Editar</button>
+                  <button class="btn small clay" data-remove-collection="${item.id}">${icons.trash} Remover</button>
+                </div>
+              </div>
+            `).join("")}
+          </article>
+        </section>
+      `;
+    }
+
+    function offersAdminTemplate() {
+      const offer = state.offers.find(item => item.id === ui.editingOfferId) || {};
+      return `
+        <section class="grid two">
+          <article class="card">
+            <h3>${offer.id ? "Editar oferta" : "Publicar oferta"}</h3>
+            <form class="form-grid" data-form="offer">
+              <label>Título <input name="title" required value="${escapeHtml(offer.title || "")}"></label>
+              <label>Descrição <textarea name="description" required>${escapeHtml(offer.description || "")}</textarea></label>
+              <div class="form-grid two">
+                <label>Período <input name="period" value="${escapeHtml(offer.period || "")}"></label>
+                <label>Tipo ${selectTemplate("type", OFFER_TYPES, offer.type || "Promoção")}</label>
+              </div>
+              <div class="form-grid two">
+                <label>Texto do botão <input name="buttonText" value="${escapeHtml(offer.buttonText || "Chamar no WhatsApp")}"></label>
+                <label>Produto relacionado ${selectTemplate("productId", ["", ...state.products.map(item => item.id)], offer.productId || "", value => value ? state.products.find(item => item.id === value)?.name || value : "Nenhum")}</label>
+              </div>
+              <label class="check-pill"><input type="checkbox" name="isMain" ${offer.isMain ? "checked" : ""}> Mostrar como oferta principal</label>
+              <div class="row-actions">
+                <button class="btn primary" type="submit">Salvar oferta</button>
+                ${offer.id ? `<button class="btn ghost" type="button" data-action="cancel-edit-offer">Cancelar</button>` : ""}
+              </div>
+            </form>
+          </article>
+          <article class="card">
+            <h3>Ofertas publicadas</h3>
+            ${state.offers.map(item => `
+              <div class="list-item">
+                <strong>${escapeHtml(item.title)}</strong>
+                <p>${escapeHtml(item.type)} · ${escapeHtml(item.period || "Sem período")}</p>
+                <div class="row-actions">
+                  <button class="btn small ghost" data-edit-offer="${item.id}">${icons.edit} Editar</button>
+                  <button class="btn small clay" data-remove-offer="${item.id}">${icons.trash} Remover</button>
+                </div>
+              </div>
+            `).join("")}
+          </article>
+        </section>
+      `;
+    }
+
+    function highlightAdminTemplate() {
+      return `
+        <section class="card">
+          <h3>Destaque principal da Home</h3>
+          <form class="form-grid" data-form="highlight">
+            <div class="form-grid two">
+              <label>Título <input name="title" required value="${escapeHtml(state.highlight.title || "")}"></label>
+              <label>Período <input name="period" value="${escapeHtml(state.highlight.period || "")}"></label>
+            </div>
+            <label>Descrição <textarea name="description" required>${escapeHtml(state.highlight.description || "")}</textarea></label>
+            <div class="form-grid two">
+              <label>Texto do botão <input name="buttonText" value="${escapeHtml(state.highlight.buttonText || "")}"></label>
+              <label>Tipo de ação ${selectTemplate("actionType", ACTION_TYPES, state.highlight.actionType || "WhatsApp")}</label>
+            </div>
+            <label>Produto ou coleção relacionada <input name="relatedId" value="${escapeHtml(state.highlight.relatedId || "")}" placeholder="Nome da coleção ou ID do produto"></label>
+            <button class="btn primary" type="submit">Salvar destaque</button>
+          </form>
+        </section>
+      `;
+    }
+
+    function clubAdminTemplate() {
+      return `
+        <section class="card">
+          <h3>Editar Clube Visse</h3>
+          <form class="form-grid" data-form="club">
+            <label>Título <input name="title" required value="${escapeHtml(state.club.title || "")}"></label>
+            <label>Descrição <textarea name="description" required>${escapeHtml(state.club.description || "")}</textarea></label>
+            <label>Benefícios <textarea name="benefits" required>${escapeHtml(state.club.benefits || "")}</textarea></label>
+            <label>Texto do botão <input name="buttonText" value="${escapeHtml(state.club.buttonText || "")}"></label>
+            <label>Mensagem de WhatsApp <textarea name="message" required>${escapeHtml(state.club.message || "")}</textarea></label>
+            <button class="btn primary" type="submit">Salvar Clube Visse</button>
+          </form>
+        </section>
+      `;
+    }
+
+    function productCard(product) {
+      return `
+        <article class="card product-card">
+          <div class="badge-row">
+            <span class="stamp">${escapeHtml(product.status || "Disponível")}</span>
+            ${product.featured ? `<span class="stamp">Destaque</span>` : ""}
+          </div>
+          <button class="shirt-art" data-product="${product.id}" aria-label="Ver ${escapeHtml(product.name)}">${shirtArtInner(product)}</button>
+          <h3>${escapeHtml(product.name)}</h3>
+          <p>${escapeHtml(product.phrase)}</p>
+          <div class="sizes">${(product.sizes || []).map(size => `<span class="size">${escapeHtml(size)}</span>`).join("")}</div>
+          <div class="product-meta">
+            <div>${priceTemplate(product)}</div>
+            <button class="btn primary small" data-buy="${product.id}">${icons.whats} Comprar</button>
+          </div>
+        </article>
+      `;
+    }
+
+    function offerCard(offer, prominent) {
+      return `
+        <article class="card offer-card ${prominent ? "paper-card" : ""}">
+          <span class="stamp">${escapeHtml(offer.type || "Oferta")}${offer.isMain ? " principal" : ""}</span>
+          <h3>${escapeHtml(offer.title)}</h3>
+          <p>${escapeHtml(offer.description)}</p>
+          <p><strong>${escapeHtml(offer.period || "Disponível")}</strong></p>
+          <button class="btn ${prominent ? "clay" : "primary"}" data-offer-whatsapp="${offer.id}">${icons.whats} ${escapeHtml(offer.buttonText || "Chamar no WhatsApp")}</button>
+        </article>
+      `;
+    }
+
+    function modalTemplate() {
+      const product = state.products.find(item => item.id === ui.selectedProductId);
+      if (!product) return "";
+      return `
+        <div class="modal-backdrop" data-action="close-modal">
+          <article class="modal" role="dialog" aria-modal="true" aria-label="${escapeHtml(product.name)}" onclick="event.stopPropagation()">
+            <div class="modal-head">
+              <strong>${escapeHtml(product.name)}</strong>
+              <button class="icon-btn" data-action="close-modal">${icons.close}</button>
+            </div>
+            <div class="modal-content">
+              <div class="grid two">
+                ${shirtArt(product)}
+                <div>
+                  <span class="stamp">${escapeHtml(product.status || "Disponível")}</span>
+                  <h2 style="margin-top:10px">${escapeHtml(product.phrase || product.name)}</h2>
+                  <p>${escapeHtml(product.description)}</p>
+                  <p><strong>Categoria:</strong> ${escapeHtml(product.category)}<br><strong>Coleção:</strong> ${escapeHtml(product.collection)}</p>
+                  <div style="margin:12px 0">${priceTemplate(product)}</div>
+                  <label>Escolha o tamanho</label>
+                  <div class="sizes" style="margin:8px 0 14px">
+                    ${(product.sizes || []).map(size => `<button class="size ${ui.selectedSize === size ? "active" : ""}" data-select-size="${escapeHtml(size)}">${escapeHtml(size)}</button>`).join("")}
+                  </div>
+                  <button class="btn primary" data-buy-final="${product.id}">${icons.whats} Comprar pelo WhatsApp</button>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      `;
+    }
+
+    function priceTemplate(product) {
+      const hasPromo = product.promoPrice && Number(product.promoPrice) > 0;
+      return `<span class="price">${money(hasPromo ? product.promoPrice : product.price)}</span>${hasPromo ? `<span class="old-price">${money(product.price)}</span>` : ""}`;
+    }
+
+    function shirtArt(product) {
+      return `<div class="shirt-art">${shirtArtInner(product)}</div>`;
+    }
+
+    function shirtArtInner(product) {
+      if (product.image) return `<img src="${product.image}" alt="${escapeHtml(product.name)}">`;
+      const color = product.category === "Pernambuco" || product.status === "Oferta" ? "#C88A0A" : product.category === "Café" ? "#163322" : "#1d6b38";
+      const textColor = color === "#C88A0A" ? "#0B0F14" : "#F2F1E8";
+      const phrase = String(product.phrase || product.name).slice(0, 34).toUpperCase();
+      return `
+        <svg class="shirt-svg" viewBox="0 0 220 220" role="img" aria-label="${escapeHtml(product.name)}">
+          <path d="M75 38 39 56 20 100l35 16 10-22v88h90V94l10 22 35-16-19-44-36-18c-8 17-62 17-70 0Z" fill="${color}" stroke="rgba(242,241,232,.72)" stroke-width="2"/>
+          <path d="M84 42c8 18 44 18 52 0" fill="none" stroke="rgba(242,241,232,.45)" stroke-width="4"/>
+          <circle cx="158" cy="68" r="18" fill="#C96B1D" opacity=".9"/>
+          <path d="m158 55 4 8 9 1-7 6 2 9-8-5-8 5 2-9-7-6 9-1Z" fill="#F2F1E8"/>
+          <text x="110" y="120" text-anchor="middle" fill="${textColor}" font-size="18" font-weight="900" font-family="Arial Narrow, Arial, sans-serif">
+            ${escapeHtml(phrase)}
+          </text>
+          <text x="110" y="146" text-anchor="middle" fill="${textColor}" opacity=".82" font-size="12" font-weight="900">USA VISSE</text>
+        </svg>
+      `;
+    }
+
+    function brandMark() {
+      return `
+        <svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M25 7A13 13 0 0 0 7 25 11 11 0 0 1 25 7Z" fill="#C96B1D"/>
+          <path d="m22 5 2 5 5 1-4 3 1 5-4-3-4 3 1-5-4-3 5-1Z" fill="#C88A0A"/>
+          <path d="M9 24c2-5 8-8 14-7" fill="none" stroke="#F2F1E8" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      `;
+    }
+
+    function selectTemplate(name, options, selected, labeler = value => value) {
+      return `<select name="${name}">${options.map(option => `<option value="${escapeHtml(option)}" ${option === selected ? "selected" : ""}>${escapeHtml(labeler(option))}</option>`).join("")}</select>`;
+    }
+
+    function sortedProducts() {
+      const weight = product => {
+        if (product.featured) return 0;
+        if (product.status === "Novo") return 1;
+        if (product.status === "Mais vendido") return 2;
+        if (product.status === "Oferta") return 3;
+        return 4;
+      };
+      return [...state.products].sort((a, b) => weight(a) - weight(b) || (b.createdAt || 0) - (a.createdAt || 0));
+    }
+
+    function filteredProducts() {
+      const query = ui.filters.search.trim().toLowerCase();
+      return sortedProducts().filter(product => {
+        const text = [product.name, product.phrase, product.category, product.collection].join(" ").toLowerCase();
+        const categoryOk =
+          ui.filters.category === "Todas" ||
+          product.category === ui.filters.category ||
+          (ui.filters.category === "Mais vendidas" && product.status === "Mais vendido") ||
+          (ui.filters.category === "Novidades" && product.status === "Novo") ||
+          (ui.filters.category === "Ofertas" && product.status === "Oferta");
+        const sizeOk = ui.filters.size === "Todos" || (product.sizes || []).includes(ui.filters.size);
+        const price = Number(product.promoPrice || product.price || 0);
+        const priceOk = ui.filters.price === "Todos" || (ui.filters.price === "Até R$80" && price <= 80) || (ui.filters.price === "Promoções" && product.promoPrice);
+        return (!query || text.includes(query)) && categoryOk && sizeOk && priceOk;
+      });
+    }
+
+    function sortedCollections() {
+      return [...state.collections].sort((a, b) => Number(a.order || 0) - Number(b.order || 0));
+    }
+
+    function shortcutIcon(label) {
+      if (label === "Regionais") return icons.cactus;
+      if (label === "Presentes") return icons.tag;
+      if (label === "Mais vendidas") return icons.star;
+      if (label === "Novidades") return icons.sun;
+      if (label === "Ofertas") return icons.tag;
+      return icons.shirt;
+    }
+
+    function shortcutText(label) {
+      const copy = {
+        Debochadas: "Humor com sotaque",
+        Regionais: "Orgulho da terra",
+        Presentes: "Acerto criativo",
+        "Mais vendidas": "As queridinhas",
+        Novidades: "Chegou agora",
+        Ofertas: "Condição boa"
+      };
+      return copy[label] || "Ver agora";
+    }
+
+    function handleClick(event) {
+      const target = event.target.closest("button, [data-tab], [data-action], [data-product], [data-buy], [data-buy-final], [data-category-shortcut], [data-open-collection], [data-filter-category], [data-filter-size], [data-filter-price], [data-admin-view], [data-edit-product], [data-duplicate-product], [data-toggle-featured], [data-set-weekly], [data-remove-product], [data-edit-collection], [data-remove-collection], [data-edit-offer], [data-remove-offer], [data-offer-whatsapp]");
+      if (!target) return;
+
+      if (target.dataset.tab) {
+        ui.tab = target.dataset.tab;
+        ui.selectedCollection = "";
+        render();
+        return;
+      }
+
+      if (target.dataset.adminView) {
+        ui.adminView = target.dataset.adminView;
+        render();
+        return;
+      }
+
+      if (target.dataset.filterCategory) {
+        ui.filters.category = target.dataset.filterCategory;
+        render();
+        return;
+      }
+
+      if (target.dataset.filterSize) {
+        ui.filters.size = target.dataset.filterSize;
+        render();
+        return;
+      }
+
+      if (target.dataset.filterPrice) {
+        ui.filters.price = target.dataset.filterPrice;
+        render();
+        return;
+      }
+
+      if (target.dataset.categoryShortcut) {
+        ui.filters.category = target.dataset.categoryShortcut;
+        ui.tab = "shirts";
+        render();
+        return;
+      }
+
+      if (target.dataset.openCollection) {
+        ui.selectedCollection = target.dataset.openCollection;
+        ui.tab = "collections";
+        render();
+        return;
+      }
+
+      if (target.dataset.product) {
+        ui.selectedProductId = target.dataset.product;
+        ui.selectedSize = "";
+        render();
+        return;
+      }
+
+      if (target.dataset.selectSize) {
+        ui.selectedSize = target.dataset.selectSize;
+        render();
+        return;
+      }
+
+      if (target.dataset.buy) {
+        ui.selectedProductId = target.dataset.buy;
+        ui.selectedSize = "";
+        render();
+        return;
+      }
+
+      if (target.dataset.buyFinal) {
+        buyProduct(target.dataset.buyFinal);
+        return;
+      }
+
+      if (target.dataset.offerWhatsapp) {
+        const offer = state.offers.find(item => item.id === target.dataset.offerWhatsapp);
+        if (offer) openWhatsApp(`Olá, vi a oferta "${offer.title}" no app da Usa Visse e quero saber mais`);
+        return;
+      }
+
+      if (target.dataset.editProduct) {
+        ui.editingProductId = target.dataset.editProduct;
+        ui.adminView = "product";
+        render();
+        return;
+      }
+
+      if (target.dataset.duplicateProduct) {
+        duplicateProduct(target.dataset.duplicateProduct);
+        return;
+      }
+
+      if (target.dataset.toggleFeatured) {
+        const product = state.products.find(item => item.id === target.dataset.toggleFeatured);
+        if (product) product.featured = !product.featured;
+        saveAndRender("Destaque atualizado");
+        return;
+      }
+
+      if (target.dataset.setWeekly) {
+        state.products.forEach(product => product.weekly = product.id === target.dataset.setWeekly);
+        saveAndRender("Camisa da semana atualizada");
+        return;
+      }
+
+      if (target.dataset.removeProduct) {
+        if (confirm("Remover esta camisa da vitrine?")) {
+          state.products = state.products.filter(item => item.id !== target.dataset.removeProduct);
+          saveAndRender("Camisa removida");
+        }
+        return;
+      }
+
+      if (target.dataset.editCollection) {
+        ui.editingCollectionId = target.dataset.editCollection;
+        render();
+        return;
+      }
+
+      if (target.dataset.removeCollection) {
+        const collection = state.collections.find(item => item.id === target.dataset.removeCollection);
+        if (collection && confirm("Remover esta coleção? Produtos vinculados continuam na vitrine")) {
+          state.collections = state.collections.filter(item => item.id !== target.dataset.removeCollection);
+          saveAndRender("Coleção removida");
+        }
+        return;
+      }
+
+      if (target.dataset.editOffer) {
+        ui.editingOfferId = target.dataset.editOffer;
+        render();
+        return;
+      }
+
+      if (target.dataset.removeOffer) {
+        if (confirm("Remover esta oferta?")) {
+          state.offers = state.offers.filter(item => item.id !== target.dataset.removeOffer);
+          saveAndRender("Oferta removida");
+        }
+        return;
+      }
+
+      const action = target.dataset.action;
+      if (!action) return;
+
+      if (action === "owner-login") {
+        const password = prompt("Senha do Modo Dono");
+        if (password === ADMIN_PASSWORD) {
+          ui.admin = true;
+          ui.adminView = "product";
+          toast("Modo Dono liberado");
+          render();
+        } else if (password !== null) {
+          toast("Senha incorreta");
+        }
+      }
+
+      if (action === "exit-admin") {
+        ui.admin = false;
+        render();
+      }
+
+      if (action === "install") installApp();
+      if (action === "whatsapp-generic") openWhatsApp("Olá, quero ver as camisas criativas da Usa Visse");
+      if (action === "club-whatsapp") openWhatsApp(state.club.message || "Olá, quero entrar no Clube Visse e receber novidades da Usa Visse");
+      if (action === "refer-friend") openWhatsApp(`Oxente, olha essa loja de camisas criativas de Pernambuco. Tu vai gostar: ${APP_CONFIG.appLink}`);
+      if (action === "highlight") handleHighlightAction();
+      if (action === "close-modal") {
+        ui.selectedProductId = "";
+        ui.selectedSize = "";
+        render();
+      }
+      if (action === "back-collections") {
+        ui.selectedCollection = "";
+        render();
+      }
+      if (action === "cancel-edit-product") {
+        ui.editingProductId = "";
+        render();
+      }
+      if (action === "cancel-edit-collection") {
+        ui.editingCollectionId = "";
+        render();
+      }
+      if (action === "cancel-edit-offer") {
+        ui.editingOfferId = "";
+        render();
+      }
+    }
+
+    function handleInput(event) {
+      if (event.target.dataset.filter === "search") {
+        ui.filters.search = event.target.value;
+        render();
+      }
+    }
+
+    function handleChange(event) {
+      if (event.target.matches('input[type="file"][name="image"]')) {
+        const file = event.target.files && event.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = () => {
+          event.target.dataset.base64 = reader.result;
+          toast("Imagem carregada, agora é só salvar");
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    async function handleSubmit(event) {
+      event.preventDefault();
+      const form = event.target;
+      const type = form.dataset.form;
+      const data = new FormData(form);
+      if (type === "product") await saveProduct(form, data);
+      if (type === "collection") saveCollection(data);
+      if (type === "offer") saveOffer(data);
+      if (type === "highlight") saveHighlight(data);
+      if (type === "club") saveClub(data);
+    }
+
+    async function saveProduct(form, data) {
+      const editing = state.products.find(item => item.id === ui.editingProductId);
+      const fileInput = form.querySelector('input[type="file"][name="image"]');
+      const image = fileInput && fileInput.dataset.base64 ? fileInput.dataset.base64 : (editing && editing.image) || "";
+      const sizes = data.getAll("sizes");
+      const product = {
+        id: editing ? editing.id : uid(),
+        name: data.get("name").trim(),
+        phrase: data.get("phrase").trim(),
+        description: data.get("description").trim(),
+        price: Number(data.get("price") || 0),
+        promoPrice: data.get("promoPrice") ? Number(data.get("promoPrice")) : "",
+        category: data.get("category"),
+        collection: data.get("collection"),
+        sizes: sizes.length ? sizes : ["P", "M", "G"],
+        status: data.get("status"),
+        image,
+        featured: data.get("featured") === "on",
+        weekly: data.get("weekly") === "on",
+        createdAt: editing ? editing.createdAt : Date.now()
+      };
+      if (product.weekly) state.products.forEach(item => item.weekly = false);
+      if (editing) {
+        state.products = state.products.map(item => item.id === editing.id ? product : item);
+      } else {
+        state.products.push(product);
+      }
+      ui.editingProductId = "";
+      ui.adminView = "showcase";
+      saveAndRender("Camisa salva na vitrine");
+    }
+
+    function saveCollection(data) {
+      const editing = state.collections.find(item => item.id === ui.editingCollectionId);
+      const collection = {
+        id: editing ? editing.id : uid(),
+        name: data.get("name").trim(),
+        description: data.get("description").trim(),
+        texture: data.get("texture").trim(),
+        image: editing ? editing.image || "" : "",
+        order: Number(data.get("order") || state.collections.length + 1)
+      };
+      if (editing) {
+        state.collections = state.collections.map(item => item.id === editing.id ? collection : item);
+      } else {
+        state.collections.push(collection);
+      }
+      ui.editingCollectionId = "";
+      saveAndRender("Coleção salva");
+    }
+
+    function saveOffer(data) {
+      const editing = state.offers.find(item => item.id === ui.editingOfferId);
+      const offer = {
+        id: editing ? editing.id : uid(),
+        title: data.get("title").trim(),
+        description: data.get("description").trim(),
+        period: data.get("period").trim(),
+        type: data.get("type"),
+        buttonText: data.get("buttonText").trim() || "Chamar no WhatsApp",
+        productId: data.get("productId"),
+        isMain: data.get("isMain") === "on"
+      };
+      if (offer.isMain) state.offers.forEach(item => item.isMain = false);
+      if (editing) {
+        state.offers = state.offers.map(item => item.id === editing.id ? offer : item);
+      } else {
+        state.offers.push(offer);
+      }
+      ui.editingOfferId = "";
+      saveAndRender("Oferta publicada");
+    }
+
+    function saveHighlight(data) {
+      state.highlight = {
+        title: data.get("title").trim(),
+        description: data.get("description").trim(),
+        period: data.get("period").trim(),
+        buttonText: data.get("buttonText").trim(),
+        actionType: data.get("actionType"),
+        relatedId: data.get("relatedId").trim()
+      };
+      saveAndRender("Destaque atualizado");
+    }
+
+    function saveClub(data) {
+      state.club = {
+        title: data.get("title").trim(),
+        description: data.get("description").trim(),
+        benefits: data.get("benefits").trim(),
+        buttonText: data.get("buttonText").trim(),
+        message: data.get("message").trim()
+      };
+      saveAndRender("Clube Visse atualizado");
+    }
+
+    function duplicateProduct(id) {
+      const product = state.products.find(item => item.id === id);
+      if (!product) return;
+      state.products.push({
+        ...product,
+        id: uid(),
+        name: product.name + " cópia",
+        featured: false,
+        weekly: false,
+        createdAt: Date.now()
+      });
+      saveAndRender("Produto duplicado");
+    }
+
+    function buyProduct(id) {
+      const product = state.products.find(item => item.id === id);
+      if (!product) return;
+      if (!ui.selectedSize) {
+        toast("Escolha um tamanho antes de comprar");
+        return;
+      }
+      openWhatsApp(`Olá, tenho interesse na camisa "${product.name}", tamanho ${ui.selectedSize}, vi pelo app da Usa Visse`);
+    }
+
+    function handleHighlightAction() {
+      if (state.highlight.actionType === "Entrar no Clube") {
+        ui.tab = "club";
+        render();
+        return;
+      }
+      if (state.highlight.actionType === "Ver coleção" && state.highlight.relatedId) {
+        ui.tab = "collections";
+        ui.selectedCollection = state.highlight.relatedId;
+        render();
+        return;
+      }
+      if (state.highlight.actionType === "Ver produto" && state.highlight.relatedId) {
+        const product = state.products.find(item => item.id === state.highlight.relatedId || item.name === state.highlight.relatedId);
+        if (product) {
+          ui.selectedProductId = product.id;
+          ui.selectedSize = "";
+          render();
+          return;
+        }
+      }
+      openWhatsApp(`Oxente, olha essa loja de camisas criativas de Pernambuco. Tu vai gostar: ${APP_CONFIG.appLink}`);
+    }
+
+    function openWhatsApp(message) {
+      const url = `https://wa.me/${APP_CONFIG.whatsapp}?text=${encodeURIComponent(message)}`;
+      window.open(url, "_blank", "noopener");
+    }
+
+    async function installApp() {
+      if (ui.deferredPrompt) {
+        ui.deferredPrompt.prompt();
+        await ui.deferredPrompt.userChoice;
+        ui.deferredPrompt = null;
+        render();
+      } else {
+        alert("Android: toque no menu do navegador e escolha Instalar app ou Adicionar à tela inicial\n\niPhone: toque no botão de compartilhar do Safari e escolha Adicionar à Tela de Início");
+      }
+    }
+
+    function saveAndRender(message) {
+      saveState();
+      toast(message);
+      render();
+    }
+
+    function toast(message) {
+      toastEl.textContent = message;
+      toastEl.classList.add("show");
+      clearTimeout(toastEl.timer);
+      toastEl.timer = setTimeout(() => toastEl.classList.remove("show"), 2200);
+    }
+
+    function initPwa() {
+      const iconSvg = encodeURIComponent(`
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <rect width="512" height="512" rx="92" fill="#062D12"/>
+          <path d="M378 118A210 210 0 0 0 134 362 174 174 0 0 1 378 118Z" fill="#C96B1D"/>
+          <path d="m340 78 31 70 76 8-57 50 17 74-67-39-67 39 17-74-57-50 76-8Z" fill="#C88A0A"/>
+          <text x="256" y="326" text-anchor="middle" fill="#F2F1E8" font-family="Arial Black, Arial" font-size="76">USA</text>
+          <text x="256" y="392" text-anchor="middle" fill="#F2F1E8" font-family="Arial Black, Arial" font-size="64">VISSE</text>
+        </svg>
+      `);
+      const iconHref = `data:image/svg+xml,${iconSvg}`;
+      document.getElementById("favicon").href = iconHref;
+      const manifest = {
+        name: "Usa Visse",
+        short_name: "Usa Visse",
+        start_url: ".",
+        display: "standalone",
+        background_color: APP_CONFIG.primaryColor,
+        theme_color: APP_CONFIG.primaryColor,
+        icons: [
+          { src: iconHref, sizes: "512x512", type: "image/svg+xml", purpose: "any maskable" }
+        ]
+      };
+      const blob = new Blob([JSON.stringify(manifest)], { type: "application/manifest+json" });
+      document.getElementById("manifestLink").href = URL.createObjectURL(blob);
+    }
+  </script>
+</body>
+</html>
